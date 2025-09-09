@@ -49,7 +49,12 @@ namespace aspnetapp.Controllers
             var counter =  await getCounterWithInit();
             return new CounterResponse { data = counter.count };
         }
-
+        [HttpGet]
+        public async Task<List<Tip>> GetTips()
+        {
+            var tips =  await _context.Tips.ToListAsync();
+            return tips;
+        }
         // POST: api/Counter
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]

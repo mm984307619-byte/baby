@@ -36,6 +36,7 @@ namespace aspnetapp
             modelBuilder.UseCollation("utf8_general_ci")
                 .HasCharSet("utf8");
             modelBuilder.Entity<Counter>().ToTable("Counters");
+            modelBuilder.Entity<Counter>().ToTable("Tips");
             OnModelCreatingPartial(modelBuilder);
         }
 

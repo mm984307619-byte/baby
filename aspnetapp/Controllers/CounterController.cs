@@ -17,7 +17,7 @@ public class CounterResponse {
 
 namespace aspnetapp.Controllers
 {
-    [Route("api/count")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CounterController : ControllerBase
     {
@@ -43,13 +43,13 @@ namespace aspnetapp.Controllers
             }
         }
         // GET: api/count
-        [HttpGet]
+        [HttpGet("GetCounter")]
         public async Task<ActionResult<CounterResponse>> GetCounter()
         {
             var counter =  await getCounterWithInit();
             return new CounterResponse { data = counter.count };
         }
-        [HttpGet]
+        [HttpGet(GetTips)]
         public async Task<List<Tip>> GetTips()
         {
             var tips =  await _context.Tips.ToListAsync();
